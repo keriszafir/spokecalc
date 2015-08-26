@@ -2,7 +2,7 @@
 
 # Spoke length calculator
 
-from math import sqrt, cos, pi
+from math import ceil, sqrt, cos, pi
 
 
 def enter_data_spec_type_or_blank(prompt, datatype):
@@ -118,12 +118,16 @@ def main():
     result = calculate(left_hub_diameter, right_hub_diameter, rim_diameter,
                        hole_diameter, spokes_left, spokes_right,
                        crosses_left, crosses_right, left_dist, right_dist)
-    print('Left spokes length: %s' % result[0])
-    print('Right spokes length: %s' % result[1])
+    print('Left spokes theoretical length: %s' % result[0])
+    print('Right spokes theoretical length: %s' % result[1])
+    print('Left spokes mm length: %s' % ceil(result[0]))
+    print('Right spokes mm length: %s' % ceil(result[1]))
     input('[Enter] to start all over, [ctrl-C] to exit...')
 
 
 if __name__ == '__main__':
+    print('Spokecalc - spoke length calculator for cycle mechanics.\n')
+    print('By: Christophe Slychan - NAVIS Design & Manufacturing\n')
     try:
         while True:
             main()
